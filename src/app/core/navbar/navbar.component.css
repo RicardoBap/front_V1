@@ -1,0 +1,184 @@
+/* -------------------< MENU LATERAL >---------------- */
+.navbar-menu {
+  font-weight: bold;
+  position: fixed;
+  width: 210px;
+  margin: 0;
+  z-index: 9998;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar-usuario {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px;
+  border-bottom: 1px solid #006ACB;
+  margin-bottom: 15px;
+}
+
+.navbar-menuitem {
+  padding: 15px;
+}
+
+.navbar-menuitem a {
+  color:#494541;
+  text-decoration: none;
+}
+
+.navbar-menuitem a:hover {
+  color: #006ACB;
+}
+
+.navbar-menuitem.ativo {
+  background-color: #C0BBB7;
+}
+
+/* -----------< topo >-------------- */
+.stick {
+  height: 40px;;
+  background-color: #3A3633;
+  opacity: 0.6;
+  color:  #FFF;
+}
+
+.telefone {
+  text-align: right;
+  color: #FFF;
+}
+
+.telefone img {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
+}
+
+.topo {
+  font-family: 'Oswald', sans-serif;
+}
+/* -----------< barra azul -------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #006ACB;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  color: #FFF;
+  font-weight: 600;
+  z-index: 9998
+}
+
+.nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  /* margin-bottom: 13px; */
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #C1E4FF;
+}
+
+.nav-link:hover{
+  color: #FFF;
+  border-bottom: 3px solid #FFF;
+  /* text-shadow:  0 0 15px #FFF; */
+}
+
+.active {
+  color: #FFF;
+  border-bottom: 3px solid #FFF;
+}
+
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #C1E4FF;
+  font-weight: 600;
+  padding: 8px 8px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #006ACB[];
+  color: #FFF;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+  background-color:  #006ACB;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  opacity: 0.6;
+  border-radius: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color:  #C1E4FF;
+  padding: 12px 16px;
+  /*text-decoration: none; */
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #006ACB;
+  color: #FFF;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* ################# BANNER ############### */
+.banner {
+  margin: 0;
+  z-index: 1;
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape) {
+  .banner img {
+    width: 100%;
+    height: 230px;
+  }
+/*
+Além de verificar a largura do dispositivo,
+você pode conferir a orientação, utilizando
+"landscape" ou "portrait".
+*/
+}
+

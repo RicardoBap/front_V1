@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="ui-g">
+
+    <form autocomplete="off" #usuarioForm="ngForm" (ngSubmit)="atualizar(usuarioForm)">
+
+      <div class="p-col-12">
+        <h2>Atualização de usuários</h2>
+      </div>
+
+      <div class="ui-g">
+        <div class="p-col-12 p-sm-8">
+          <!--div class="p-grid"-->
+          <div class="p-grid">
+
+            <div class="p-col-12 ui-fluid"  >
+              <label style="display: block">Código</label>
+              <input class="form-control" type="text" pInputText style="width: 160px;"
+                     name="codigo" ngModel #codigo="ngModel" [(ngModel)]="usuario.codigo" />
+            </div>
+
+            <div class="p-col-12 p-md-6 ui-fluid">
+              <label>nome</label>
+              <input class="form-control" type="text" pInputText
+                     name="nome" ngModel #nome="ngModel" [(ngModel)]="usuario.nome" />
+            </div>
+
+            <div class="p-col-12 p-md-6 ui-fluid">
+              <label>E-mail</label>
+              <input class="form-control" type="text" pInputText
+                     name="email" ngModel #email="ngModel" [(ngModel)]="usuario.email" />
+            </div>
+
+            <div class="p-col-6 ui-fluid">
+              <label>Senha do Usuário</label>
+              <input class="form-control" type="text" pInputText
+              name="senhaUsuario" ngModel #senhaUsuario="ngModel" [(ngModel)]="usuario.senhaUsuario" />
+            </div>
+
+            <div class="p-col-12 ui-fluid">
+              <label>Nova senha</label>
+              <input class="form-control" type="text" pInputText
+                     name="senha" ngModel #senha="ngModel" [(ngModel)]="usuario.senha" />
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12 p-sm-4 ui-fluid">
+          <label>Permissões</label>
+          <p-listbox  [showToggleAll]="true" [options]="permissoes"
+                      name="permissao" ngModel #permissao="ngModel" [(ngModel)]="usuario.permissoes"
+                      [multiple]="true" [checkbox]="true"
+                      [listStyle]="{'max-height':'300px'}"  optionLabel="descricao"  >
+          </p-listbox>
+        </div>
+
+        <div class="p-col-12">
+          <button pButton type="submit" label="Atualizar" ></button>
+          <a routerLink="/usuarios" style="margin-left: 10px;">Voltar para a pesquisa</a>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>

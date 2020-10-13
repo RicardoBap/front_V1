@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="ui-g">
+
+    <form autocomplete="off" (ngSubmit)="pesquisar()">
+
+      <div class="p-col-12">
+        <h1>Lançamentos</h1>
+      </div>
+
+      <div class="p-col-12 ui-fluid">
+        <label>Descrição</label>
+        <input type="text" pInputText name="descricao" [(ngModel)]="filtro.descricao" />
+      </div>
+
+      <div class="p-col-12 ui-fluid">
+        <label style="display: block">Vencimento</label>
+        <input type="date" pInputText style="width: 160px;"
+              name="vencimentoInicio" [(ngModel)]="filtro.dataVencimentoInicio" />
+
+        <label>até</label>
+        <input type="date" pInputText style="width: 160px;"
+              name="vencimentoFim" [(ngModel)]="filtro.dataVencimentoFim" />
+      </div>
+
+      <div class="p-col-12">
+        <button pButton label="Pesquisar" (click)="pesquisar()"></button>
+      </div>
+
+      <div class="p-col-12">
+        <p-table [value]="lancamentos" [responsive]="true"
+        [lazy]=true [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela
+        [paginator]="true" [rows]="filtro.itensPorPagina"  [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} ate {last} total de {totalRecords} lancamentos" >
+          <ng-template pTemplate="header" >
+              <tr>
+                  <th>Pessoa</th>
+                  <th>Descrição</th>
+                  <th class="col-data">Vencimento</th>
+                  <th class="col-data"> Pagamento</th>
+                  <th class="col-valor">Valor</th>
+                  <th class="col-botao"></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-lan  >
+              <tr >
+                  <td>{{ lan.pessoa }}</td>
+                  <td>{{ lan.descricao }}</td>
+                  <td class="col-data">{{ lan.dataVencimento | date: "dd/MM/yyyy" }}</td>
+                  <td class="col-data">{{ lan.dataPagamento | date: "dd/MM/yyyy" }}</td>
+                  <td class="col-valor" [style.color]="lan.tipo === 'DESPESA' ? 'red' : 'blue'">
+                      {{ lan.valor | currency :'BRL':'symbol':'1.2-2':'pt'   }}
+                  </td>
+                  <td style="text-align: center;">
+                    <a style="margin-right: 10px;" type="button" pButton icon="pi pi-pencil"
+                      pTooltip="Atualizar" tooltipPosition="top"
+                      [routerLink]="['/lancamentos', lan.codigo]">
+                    </a>
+
+                    <button pButton  icon="pi pi-trash"
+                            pTooltip="Excluir" tooltipPosition="top"
+                            [disabled]="!auth.temPermissao('ROLE_REMOVER_LANCAMENTO')"
+                            (click)="confirmarExclusao(lan)">
+                    </button>
+                  </td>
+              </tr>
+          </ng-template>
+          <!--ng-template #emptyMessage>
+            <tr>
+                <td colspan="6">Não há dados para mostrar</td>
+            </tr>
+        </ng-template-->
+        </p-table>
+      </div>
+
+    </form>
+
+    <div class="p-col-12">
+      <a pButton routerLink="/lancamentos/novo" label="Novo Lançamento"></a>
+    </div>
+
+  </div>
+</div>
+

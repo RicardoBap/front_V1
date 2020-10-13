@@ -1,0 +1,15 @@
+input.ng-invalid.ng-touched {
+  border: 2px solid #C00000;
+}
+
+input.ng-valid.ng-touched {
+  border: 2px solid #008000;
+}
+
+.text-success {
+  color: #008000;
+}
+
+.text-danger {
+  color: #C00000;
+}

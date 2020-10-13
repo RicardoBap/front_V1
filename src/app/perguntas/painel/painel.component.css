@@ -1,0 +1,83 @@
+p {
+  font-weight: 600;
+  font-size: 16px;
+  color:  #0000C0 ;
+  /*padding-left: 20px; */
+}
+
+.alert {
+  text-align: justify;
+  font-size: 16px;
+  font-weight: 600;
+  color: #C00000;
+}
+
+.card {
+  background-color:#ffE0E0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #f09898;
+}
+
+.d-flex {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.justify-content-center {
+  text-align: center;
+}
+
+.form-check-inline {
+  display: inline-flex;
+  margin-left: 30px;
+}
+
+
+/* ------------------------------------------- */
+
+.painel {
+  background-color: #FFF;
+	border: 1px solid #CCC;
+  border-color: #CCC #999 #999 #CCC;
+  border-radius: 10px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.painel h3 {
+	border-bottom: 1px dashed #C00000;
+  margin: 0;
+}
+
+#botao {
+  text-align: right
+}
+
+.intro {
+  color: #606060;
+  font-size: 14px;
+  text-align: justify;
+  text-indent: 3ch;
+  margin-top: 0;
+  /*margin-block-start: 0 !important;*/
+  margin-block-end: 0 !important;
+}
+
+.icon-ok {
+	color: #489D00;
+}
+
+.icon-ok::before {
+	content: "\2714";
+  font-family: "IconicFill";
+}
+
+.icon-invalid {
+	color: #990000;
+}
+
+.icon-invalid::before {
+	content: "\2718";
+	font-family: "IconicFill";
+}

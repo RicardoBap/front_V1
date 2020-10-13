@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="ui-g">
+
+    <form [formGroup]="formulario" novalidate (ngSubmit)="adicionarUsuario()" >
+
+      <div class="p-col-12">
+        <div class="p-grid p-justify-center">
+
+          <div class="p-col-12 p-sm-8">
+            <h1>Cadastro de usuários</h1>
+          </div>
+
+          <div class="p-col-12 p-sm-8 ui-fluid">
+            <label>Nome</label>
+            <input class="form-control" type="text" pInputText formControlName="nome" />
+            <small *ngIf="formulario.get('nome').valid && formulario.get('nome').touched"
+                  style="font-weight: bold;" class="form-text text-success">OK</small>
+            <small *ngIf="!formulario.get('nome').valid && formulario.get('nome').touched"
+                  style="font-weight: bold;" class="form-text text-danger">Nome inválido</small >
+          </div>
+
+          <div class="p-col-12 p-sm-8 ui-fluid">
+            <label>E-mail</label>
+            <input class="form-control" type="text" pInputText formControlName="email" />
+            <small *ngIf="formulario.get('email').valid && formulario.get('email').touched"
+                  style="font-weight: bold;" class="form-text text-success">OK</small>
+            <small *ngIf="!formulario.get('email').valid && formulario.get('email').touched"
+                  style="font-weight: bold;" class="form-text text-danger">E-mail inválido</small >
+          </div>
+
+          <div class="p-col-12 p-sm-8 ui-fluid">
+            <label>Senha</label>
+            <input class="form-control" type="password" pPassword [showPassword]="false" [feedback]="false" pInputText
+                  formControlName="senha" />
+            <small *ngIf="formulario.get('senha').valid && formulario.get('senha').touched"
+                  style="font-weight: bold;" class="form-text text-success">OK</small>
+            <small *ngIf="!formulario.get('senha').valid && formulario.get('senha').touched"
+                  style="font-weight: bold;" class="form-text text-danger">Mínimo de 6 letras ou números</small>
+          </div>
+
+          <div class="p-col-12 p-sm-8 ui-fluid">
+            <label>Confirme a sua senha</label>
+            <input class="form-control" type="password" pPassword [showPassword]="false" [feedback]="false" pInputText
+                       formControlName="confirmarSenha" />
+
+            <small *ngIf="formulario.get('confirmarSenha').valid && formulario.get('confirmarSenha').touched"
+                  style="font-weight: bold;" class="form-text text-success">OK</small>
+            <small *ngIf="!formulario.get('confirmarSenha').valid && formulario.get('confirmarSenha').touched"
+                  style="font-weight: bold;" class="form-text text-danger">As senhas não coincidem!</small>
+          </div>
+
+           <!--div class="p-col-12 p-sm-4 ui-fluid">
+            <label>Permissões</label>           <!-- AQUI  OCULTAÇÃO MAS PRECISA REPENSAR
+            <p-listbox [options]="permissoes"  [showToggleAll]="false" [(ngModel)]="selecione"
+                   [multiple]="true" [checkbox]="true" [listStyle]="{'max-height':'200px'}"
+                   optionLabel="descricao" formControlName="permissoes" >
+            </p-listbox>
+            <p style="font-weight: bold;">Selecionado: <span *ngFor="let c of selecione"
+              style="margin-right: 10px;">{{ c.codigo }}</span></p>
+          </div-->
+
+          <div class="p-col-12 p-sm-8">
+            <button pButton type="submit" label="adicionar" [disabled]="!formulario.valid" ></button>
+            <a routerLink="/usuarios" style="margin-left: 10px;">Voltar para a pesquisa</a>
+          </div>
+          <!-- div>{{ formulario.value | json}}</div>
+          <div>{{ formulario.valid | json }}</div -->
+          </div>
+        </div>
+
+      </form>
+
+  </div>
+</div>

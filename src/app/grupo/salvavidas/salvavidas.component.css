@@ -1,0 +1,121 @@
+.place {
+	border: 1px solid #CCC;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.place p {
+  font-weight: 600;
+  font-size: 16px;
+  color:  #0000C0;
+  text-align: justify;
+  text-indent: 5ch;
+}
+
+/*
+p {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+} */
+
+.place h3 {
+	border-bottom: 1px dashed #C00000;
+	margin: 0;
+}
+
+.place img {
+	border: 1px solid #000;
+	float: left;
+	margin: 10px 10px 0 0;
+	padding: 2px;
+}
+
+.clear {
+	clear: both;
+}
+
+.sidenote {
+  background-color: #FFFBE4;
+  border: 1px solid #C9BC8F;
+	/*float: right;*/
+	padding: 10px;
+	width: 260px;
+}
+
+.sidenote h3 {
+	font-size: 14px;
+	/* margin-top: 0; */
+}
+.sidenote ol {
+	font-size: 12px;
+}
+
+/* ---------< FOTOS >----------- */
+span {
+	color: #153755;
+	display: block;
+	font-weight: bold;
+	margin-top: 5px;
+	text-align: center;
+}
+
+@media only screen
+and (min-device-width: 640px)
+and (max-device-width: 1200px)
+and (orientation: portrait) {
+  .fotos img {
+    width: 330px;
+    height: 100%;
+  }
+/*
+Além de verificar a largura do dispositivo,
+você pode conferir a orientação, utilizando
+"landscape" ou "portrait".
+*/
+}
+
+span {
+	color: #153755;
+	display: block;
+	font-weight: bold;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.fotos:nth-child(even) {
+	transform: rotate(5deg);
+}
+
+.fotos:nth-child(odd) {
+	  transform: rotate(-5deg);
+}
+
+.fotos:hover {
+  transform: scale(1.3);
+  z-index: 1;
+}
+
+.fotos {
+  transition: transform 0.2s linear;
+}
+
+/* --------- endereço do grupo */
+section {
+  font-weight: bold;
+  height: 50px;
+  line-height: 25px;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  width: 220px;
+}
+
+/*---------<LINHA>----------- */
+h4 {
+  background-color:  #C00000;
+  text-align: center;
+  color: #FFF;
+  border-radius: 5px;
+  padding-bottom: 3px;
+  margin-bottom: 30px;
+}

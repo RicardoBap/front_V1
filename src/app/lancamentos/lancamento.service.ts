@@ -1,0 +1,112 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+import { Lancamento } from './../core/model';
+
+import * as moment from 'moment'
+import { MoneyHttp } from '../seguranca/money-http';
+
+export class LancamentoFiltro {
+  descricao: string
+  dataVencimentoInicio: Date
+  dataVencimentoFim: Date
+  pagina = 0
+  itensPorPagina = 5
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LancamentoService {
+
+  lancamentosUrl = 'http://localhost:8080/lancamentos'
+
+  constructor(private http: MoneyHttp) { }
+
+  pesquisar(filtro: LancamentoFiltro): Promise<any> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+
+      let params = new HttpParams({
+        fromObject: {
+          page: filtro.pagina.toString(),        //params = params.set('page', filtro.pagina.toString())
+          size: filtro.itensPorPagina.toString() //params = params.set('size', filtro.itensPorPagina.toString())
+        }
+      })
+
+    if(filtro.descricao) {
+      params = params.append('descricao', filtro.descricao)
+    }
+    if(filtro.dataVencimentoInicio) {
+      params = params.append('dataVencimentoDe',
+        moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD'))
+    }
+    if(filtro.dataVencimentoFim) {
+      params = params.append('dataVencimentoAte',
+        moment(filtro.dataVencimentoFim).format('YYYY-MM-DD'))
+    }
+
+    return this.http.get<any>(`${this.lancamentosUrl}?resumo`, { headers, params })
+    .toPromise()
+    .then(response => {
+      const lancamentos = response.content
+
+      const resultado = {
+        lancamentos: lancamentos,
+        total: response.totalElements
+      }
+      return resultado
+    })
+  }
+
+  excluir(codigo: number): Promise<void> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+
+    return this.http.delete<any>(`${this.lancamentosUrl}/${codigo}`, { headers })
+      .toPromise()
+      .then(() => null)
+  }
+
+  adicionar(lancamento: Lancamento): Promise<Lancamento> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+      .append('Content-type', 'application/json')
+
+      const body = JSON.stringify(lancamento);
+
+    return this.http.post<any>(`${this.lancamentosUrl}`, lancamento )
+      .toPromise()
+      .then(response => response)
+  }
+
+  buscarPeloCodigo(codigo: number): Promise<Lancamento> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+
+    return this.http.get<Lancamento>(`${this.lancamentosUrl}/${codigo}`, { headers } )
+      .toPromise()
+      .then( response => {
+        const lancamento = response as Lancamento
+        //this.converterStringParaData(lancamento)
+        return lancamento
+      })
+  }
+
+  atualizar(lancamento: Lancamento, codigo: number): Promise<Lancamento> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+      .append('Content-type', 'application/json')
+
+      const body = JSON.stringify(lancamento);
+
+    return this.http.put<any>(`${this.lancamentosUrl}/${codigo}`, body , { headers })
+      .toPromise()
+      .then(response => response)
+  }
+
+  private converterStringParaDatas(lancamentos: Lancamento[]) {
+
+  }
+
+}

@@ -1,0 +1,65 @@
+<div class="container"> <!--  style="width: 1000px;" -->
+
+  <form autocomplete="off" #categoriaForm="ngForm" (ngSubmit)="salvar(categoriaForm)">
+
+    <div class="ui-g">
+
+      <div class="p-col-12">
+        <h1>{{ editando ? 'Edição de' : 'Nova'}} categoria</h1>
+      </div>
+
+      <div class="p-col-12 p-sm-6 ui-fluid">
+        <label>Nome</label>
+        <input  type="text" pInputText name="nome" ngModel #nome="ngModel"
+              [(ngModel)]="categoria.nome" required/>
+      </div>
+
+
+      <div class="p-col-12">
+        <button pButton type="submit" label="Adicionar"  style="margin-right: 10px;"
+          routerLink="/categorias/nova" [disabled]="!categoriaForm.valid" >
+        </button>
+        <a pButton (click)="limpar()" label="Nova Categoria" >
+        </a>
+        <a routerLink="/lancamentos" style="margin-left: 10px;">Pesquisar lançamentos</a>
+      </div>
+
+
+    </div>
+  </form>
+<!-- ***********************<><>><><><><><>******************************* -->
+  <div class="ui-g">
+
+    <div class="p-col-12">
+      <p-table [value]="categorias" [responsive]="true" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando {first} a {last} total de {totalRecords} categorias">
+          <ng-template pTemplate="header" >
+            <tr>
+              <th class="codigo-header">Codigo</th>
+              <th>Nome</th>
+              <th class="col-botao"></th>
+            </tr>
+          </ng-template>
+        <ng-template pTemplate="body" let-categoria>
+          <tr>
+            <td class="codigo-cell">{{categoria.codigo}}</td>
+            <td>{{categoria.nome}}</td>
+            <td style="text-align: center;">
+              <a style="margin-right: 10px;" href="#" pButton icon="pi pi-pencil"
+                pTooltip="Atualizar" tooltipPosition="top"  (click)="buscarPeloCodigo(categoria.codigo)"
+                routerLink="/categorias/nova" >
+            </a>
+              <button pButton icon="pi pi-trash"
+                pTooltip="Excluir" tooltipPosition="top"
+                [disabled]="!auth.temPermissao('ROLE_REMOVER_CATEGORIA')"
+                (click)="confirmarExclusao(categoria)" >
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+
+</div>

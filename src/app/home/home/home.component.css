@@ -1,0 +1,200 @@
+.tres-snippets {
+  background-color: #3A3633;
+  height: auto;
+  /*position: relative;
+  bottom: 140px; /* 120px */
+  z-index: 50;
+}
+
+.snippet {
+  text-align: center;
+}
+
+.centro {
+  /*border: 1px solid #000;*/
+  height: 100px;
+  margin: 0 auto;
+  width: 250px;
+  margin-bottom: 30px; /*<--- MARGIM PARA O TERCEIRO ELEMENTO */
+}
+
+.snippet-middle {
+	background-color: #1B1444;
+	color:   #C1E4FF;
+	/*border: 1px solid #000; */
+	height: 130px;
+	padding: 10px;
+	width: 250px;
+	text-align: center;
+	font-size: 14px;
+	position: relative;
+	bottom: 15px;
+  /*box-shadow: -3px 3px 10px #606060, 1px 3px 3px #606060; /*,  -10px 0 1em #000;  */
+  z-index: 50;
+}
+
+#triangulo-para-baixo {
+  width: 0;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  border-top: 30px solid #1B1444;
+
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,1));
+  position: relative;
+  bottom: 15px;
+}
+/* icone de maos dadas */
+.icon-help img {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+/* snippet central luminoso */
+.snippet-middle h2:hover {
+	color: #FFF !important;
+	font-weight: 800 !important;
+  text-shadow: 0 0 20px #fff, 0 -5px 20px #fff,
+               0 5px 20px #fff;
+}
+
+/* ---------------< Body >-------------- */
+/* -----------< H1 titulo >---------- */
+.bem-vindo {
+  font-family: 'Damion', cursive;
+  font-size: 46px;
+  color: #74B4F4;;
+  text-align: center;
+}
+
+/* --------< BORDA > --------- */
+.section {
+  border: 1px solid #CCC;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.section:hover {
+  /* border-color: #606060 #3A3633 #3a3633 #606060; */
+  border-color: #606060 #3A3633 #3a3633 #606060;
+  box-shadow: 0 0 10px #606060;
+}
+
+.section:hover .pi {
+  margin-right: 20px;
+  transition: 2s;
+  color: #006ACB;
+  opacity: 0.9;
+}
+
+/* --- icone de bebida flutuando a esquerda */
+.section img {
+  float: left;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/* ----------- texto da caixa --------- */
+.section p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: end;
+  padding-bottom: 20px;
+  color:  #404C51 !important;
+}
+
+.clear {
+  clear: both;
+  }
+
+/* Conteudo do preambulo */
+.preambulo {
+  text-align: justify;
+  line-height: 1.6;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* DESTACA A PRIMEIrA LETRA DO PRAMBULO */
+i {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+/* Tira o espacamento automatico */
+p {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+/* preambulo */
+h3 {
+  color: #C00000;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.section h3 {
+    color: #C00000;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* ------------------ REVISTA --------- */
+.section-revista {
+  border: 1px solid #CCC;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.section-revista h3 {
+  text-align: right;
+}
+
+.logo-revista {
+  text-align: center;
+}
+
+.section-revista:hover {
+  border-color: #606060 #3A3633 #3a3633 #606060;
+  box-shadow: 0 0 10px #606060;
+}
+
+.icon-revista {
+  float: left;
+  margin-top: 20px;
+}
+
+.section-revista p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: end;
+  padding-top: 10px;
+  color:#404C51;
+}
+
+/* --------< Seta revsita >--------- */
+.pi {
+  opacity: 0.1;
+  float: right;
+  padding-right: 10px;
+}
+
+.section-revista:hover .pi {
+  margin-right: 20px;
+  transition: 2s;
+  color: #006ACB;
+  opacity: 0.9;
+}
+
+/* ------------< LINHA >------------- */
+hr {
+  height: 10px;
+  background-color: #C00000;
+}
+

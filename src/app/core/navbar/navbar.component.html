@@ -1,0 +1,109 @@
+<div class="stick">
+  <div class="container">
+    <div class="p-col-12 topo">
+      <div class="p-grid  p-justify-between">
+        <div class="p-col-6">
+          Salva-vidas Área-29
+        </div>
+        <div class="p-col-6  p-offset-0  telefone" >
+          <img src="../../../assets/icones/telefone.png" /> (19) 3234-8088
+          <img src="../../../assets/icones/brasil.png" />
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <div class="container">
+    <ul class="nav">
+      <li class="nav-item">
+        <a *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')"
+          type="button" (click)="display = true" pButton icon="pi pi-bars">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/localizacao">Localização</a>
+      </li>
+
+      <li class="nav-item">
+        <div class="dropdown"> <!-- class="dropbtn" -->
+          <a  class="nav-link" routerLinkActive="active" >Sobre</a>
+          <div class="dropdown-content">
+            <a class="nav-link" routerLinkActive="active" routerLink="/salvavidas">Grupo Salva vidas</a>
+            <!--a href="#">Link 2</a>
+            <a href="#">Link 3</a-->
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<p-sidebar [(visible)]="display" position="right" [baseZIndex]="10000">
+  <h1>Menu</h1>
+
+  <ul class="navbar-menu" >
+    <li class="navbar-usuario">{{ auth.jwtPayLoad?.nome }}</li>
+    <li class="navbar-menuitem"
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')" routerLinkActive="ativo">
+      <a routerLink="/dashboard">Dashbboard</a>
+    </li>
+
+    <li class="navbar-menuitem"
+        *ngIf="auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')" routerLinkActive="ativo">
+        <a routerLink="/lancamentos">Lançamentos</a>
+    </li>
+
+    <li class="navbar-menuitem"
+        *ngIf="auth.temPermissao('ROLE_PESQUISAR_PESSOA')"  routerLinkActive="ativo">
+        <a routerLink="/pessoas">Pessoas</a>
+    </li>
+
+    <li class="navbar-menuitem"
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_PESSOA')"  routerLinkActive="ativo">
+      <a routerLink="/relatorios/lancamentos">Relatórios</a>
+    </li>
+
+    <li class="navbar-menuitem"
+      *ngIf="auth.temPermissao('ROLE_PESQUISAR_CATEGORIA')" routerLinkActive="ativo">
+      <a routerLink="/categorias">Categorias</a>
+    </li>
+
+    <li class="navbar-menuitem"
+      *ngIf="auth.temPermissao('ROLE_CADASTRAR_USUARIO')"  routerLinkActive="ativo" >
+      <a routerLink="/usuarios/novo">Cadastrar usuários</a>
+    </li>
+
+    <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
+
+    <button pButton type="button"
+      (click)="criarNovoAccessToken()" label="Cancelar" class="ui-button-secondary">
+    </button>
+  </ul>
+
+</p-sidebar>
+
+<div class="banner" *ngIf="!auth.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide>
+      <img src="../../../assets/banner/banner.1.jpg" />
+    </ng-template>
+    <ng-template carouselSlide>
+      <img src="../../../assets/banner/banner.5.jpg" />
+    </ng-template>
+    <ng-template carouselSlide>
+      <img src="../../../assets/banner/banner.3.jpg" />
+    </ng-template>
+    <ng-template carouselSlide>
+      <img src="../../../assets/banner/banner.4.jpg" />
+    </ng-template>
+  </owl-carousel-o>
+
+</div>
+

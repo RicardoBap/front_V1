@@ -1,0 +1,42 @@
+p {
+  color: #606060;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: justify;
+  text-indent: 3ch;
+}
+
+.painel {
+  background-color: #FFF;
+	border: 1px solid #CCC;
+  border-color: #CCC #999 #999 #CCC;
+  border-radius: 10px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.painel h3 {
+  border-bottom: 1px dashed #C00000;
+	margin: 0;
+}
+/*
+h1 {
+	color: #FFF;
+	text-shadow: 2px 4px 2px rgba(0,0,0,0.3);
+	text-align: center;
+} */
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+  img {
+    width: 340px;
+    height: 100%;
+  }
+/*
+Além de verificar a largura do dispositivo,
+você pode conferir a orientação, utilizando
+"landscape" ou "portrait".
+*/
+}

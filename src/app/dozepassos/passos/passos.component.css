@@ -1,0 +1,66 @@
+/* --- TITULO --- */
+
+/* -------------------< passos > ------------- */
+.titulo strong {
+  font-size: 16px;
+  color: #C00000;
+}
+
+.titulo {
+  text-align: justify;
+  font-weight: 600;
+}
+
+.content p {
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+  text-align: justify;
+  font-weight: 600;
+  color: #0000C0;
+}
+
+/* --------< Imagem >---------- */
+.figure {
+	position: relative;
+}
+
+img {
+	display: block;
+}
+
+h3 {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+figcaption {
+	bottom: 330px;
+	margin: 0 10px;
+	padding: 5px;
+	position: absolute;
+	width: 320px;
+}
+
+figcaption {
+	background-color: #000;
+	background-color: rgba(0,0,0,0.3);
+	color: #FFF;
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+  .figure img {
+    width: 330px;
+    height: 100%;
+  }
+/*
+Além de verificar a largura do dispositivo,
+você pode conferir a orientação, utilizando
+"landscape" ou "portrait".
+*/
+}
