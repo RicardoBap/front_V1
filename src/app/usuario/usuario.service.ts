@@ -4,6 +4,8 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { MoneyHttp } from './../seguranca/money-http';
 import { Usuario, Permissao } from './../core/usuario.model';
 
+import { environment } from './../../environments/environment.prod';
+
 export class UsuarioFiltro {
   nome: string
   pagina = 0
@@ -13,12 +15,15 @@ export class UsuarioFiltro {
 @Injectable()
 export class UsuarioService {
 
-  usuariosUrl = 'http://localhost:8080/usuarios'
-  permissoesUrl = 'http://localhost:8080/permissao'
+  usuariosUrl: string;   /* 'http://localhost:8080/usuarios' */
+  permissoesUrl: string;  /* 'http://localhost:8080/permissao' */
 
   constructor(
     private http: MoneyHttp
-  ) {}
+  ) {
+    this.usuariosUrl = `${environment.apiUrl}/usuarios`
+    this.permissoesUrl = `${environment.apiUrl}/permissao`
+  }
 
   pesquisar( filtro: UsuarioFiltro ): Promise<any> {
     const headers = new HttpHeaders()

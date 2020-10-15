@@ -3,17 +3,21 @@ import { Injectable } from '@angular/core';
 import { MoneyHttp } from './money-http';
 import { AuthService } from './auth.service';
 
+import { environment } from './../../environments/environment.prod';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LogoutService {
 
-  tokensRevokeUrl = 'http://localhost:8080/tokens/revoke'
+  tokensRevokeUrl: string;  /* 'http://localhost:8080/tokens/revoke' */
 
   constructor(
     private http: MoneyHttp,
     private auth: AuthService
-  ) { }
+  ) {
+    this.tokensRevokeUrl = `${environment.apiUrl}/tokens/revoke`
+  }
 
   logout() {
     return this.http.delete(this.tokensRevokeUrl, { withCredentials: true })

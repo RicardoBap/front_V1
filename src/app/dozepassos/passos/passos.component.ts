@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,10 +10,12 @@ export class PassosComponent implements OnInit {
 
   titulo: string = 'Os 12 Passos de A.A.';
 
-  constructor() {
+  constructor(private title: Title) {
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('12 passos de A.A.')
+  }
 
 
 }

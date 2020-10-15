@@ -6,6 +6,8 @@ import { Lancamento } from './../core/model';
 import * as moment from 'moment'
 import { MoneyHttp } from '../seguranca/money-http';
 
+import { environment } from './../../environments/environment.prod';
+
 export class LancamentoFiltro {
   descricao: string
   dataVencimentoInicio: Date
@@ -19,9 +21,11 @@ export class LancamentoFiltro {
 })
 export class LancamentoService {
 
-  lancamentosUrl = 'http://localhost:8080/lancamentos'
+  lancamentosUrl: string /* 'http://localhost:8080/lancamentos' */
 
-  constructor(private http: MoneyHttp) { }
+  constructor(private http: MoneyHttp) {
+    this.lancamentosUrl = `${environment.apiUrl}/lancamentos`
+   }
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     const headers = new HttpHeaders()

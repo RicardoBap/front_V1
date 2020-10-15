@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { HttpParams } from '@angular/common/http';
 
-import { environment } from './../../environments/environment.prod';
 import { MoneyHttp } from './../seguranca/money-http';
 import * as moment from 'moment';
+
+import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'

@@ -4,6 +4,8 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { Pessoa } from './../core/model';
 import { MoneyHttp } from '../seguranca/money-http';
 
+import { environment } from './../../environments/environment.prod';
+
 export class PessoasFiltro {
   nome: string
   pagina = 0
@@ -15,9 +17,11 @@ export class PessoasFiltro {
 })
 export class PessoaService {
 
-  pessoasUrl = 'http://localhost:8080/pessoas'
+  pessoasUrl: string;     /* 'http://localhost:8080/pessoas' */
 
-  constructor(private http: MoneyHttp) { }
+  constructor(private http: MoneyHttp) {
+    this.pessoasUrl = `${environment.apiUrl}/pessoas`
+   }
 
   pesquisar( filtro: PessoasFiltro ): Promise<any> {
     const headers = new HttpHeaders()

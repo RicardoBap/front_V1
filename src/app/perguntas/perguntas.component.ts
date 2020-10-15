@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-perguntas',
   templateUrl: './perguntas.component.html',
   styleUrls: ['./perguntas.component.css']
 })
-export class PerguntasComponent {
+export class PerguntasComponent implements OnInit {
 
-  constructor() {}
+  ngOnInit() {
+    this.title.setTitle('Você deve procurar o A.A.?')
+  }
+
+  constructor(private title: Title) {}
 
   public emAndamento = true;
   public tipoEncerramento;

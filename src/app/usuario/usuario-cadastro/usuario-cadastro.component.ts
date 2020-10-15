@@ -73,7 +73,7 @@ export class UsuarioCadastroComponent implements OnInit {
         this.formulario.value.senha,
         this.permissoes
       )
-      console.log('teste inserindo usuario', usuario)
+      //console.log('teste inserindo usuario', usuario)
       this.usuarioService.adicionar(usuario)
         .then(() => {
           this.messageService.add(

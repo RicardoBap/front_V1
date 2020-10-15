@@ -4,14 +4,18 @@ import { HttpHeaders } from '@angular/common/http';
 import { MoneyHttp } from '../seguranca/money-http';
 import { Categoria } from '../core/model';
 
+import { environment } from './../../environments/environment.prod';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
 
-  categoriasUrl = 'http://localhost:8080/categorias'
+  categoriasUrl: string; /* 'http://localhost:8080/categorias' */
 
-  constructor(private http: MoneyHttp) { }
+  constructor(private http: MoneyHttp) {
+    this.categoriasUrl = `${environment.apiUrl}/categorias`
+   }
 
   listarTodas(): Promise<any> {
     const headers = new HttpHeaders()
