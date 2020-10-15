@@ -35,7 +35,7 @@ export class CategoriaService {
       .append('Content-Type', 'application/json')
 
       const body = JSON.stringify(Categoria)
-      //console.log(categoria)
+
       return this.http.post<Categoria>(`${this.categoriasUrl}`, categoria )
         .toPromise()
         .then(response => response)

@@ -1,4 +1,4 @@
-<div class="container"> <!--  style="width: 1000px;" -->
+<div class="container">
 
   <form autocomplete="off" #categoriaForm="ngForm" (ngSubmit)="salvar(categoriaForm)">
 
@@ -14,7 +14,6 @@
               [(ngModel)]="categoria.nome" required/>
       </div>
 
-
       <div class="p-col-12">
         <button pButton type="submit" label="Adicionar"  style="margin-right: 10px;"
           routerLink="/categorias/nova" [disabled]="!categoriaForm.valid" >
@@ -24,14 +23,13 @@
         <a routerLink="/lancamentos" style="margin-left: 10px;">Pesquisar lançamentos</a>
       </div>
 
-
     </div>
   </form>
 <!-- ***********************<><>><><><><><>******************************* -->
   <div class="ui-g">
 
     <div class="p-col-12">
-      <p-table [value]="categorias" [responsive]="true" [paginator]="true" [rows]="3" [showCurrentPageReport]="true"
+      <p-table [value]="categorias" [responsive]="true" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
         currentPageReportTemplate="Mostrando {first} a {last} total de {totalRecords} categorias">
           <ng-template pTemplate="header" >
             <tr>

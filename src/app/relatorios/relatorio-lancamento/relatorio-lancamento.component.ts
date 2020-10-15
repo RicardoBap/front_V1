@@ -25,12 +25,9 @@ export class RelatorioLancamentoComponent implements OnInit {
   }
 
   gerarRelatorioDiario() {
-    console.log(this.relatorioService.relatorioLancamentosDiario(this.periodoInicio, this.periodoFim))
     this.relatorioService.relatorioLancamentosDiario(this.periodoInicio, this.periodoFim)
       .then(relatorio => {
-        console.log(relatorio)
         const url = window.URL.createObjectURL(relatorio)
-
         window.open(url)
       })
   }
@@ -38,12 +35,9 @@ export class RelatorioLancamentoComponent implements OnInit {
   gerarRelatorioPorPessoa() {
     this.relatorioService.relatorioPorPessoa(this.periodoInicio, this.periodoFim)
       .then(relatorio => {
-        //console.log(relatorio)
         const url = window.URL.createObjectURL(relatorio)
-
         window.open(url)
       })
   }
-
 
 }

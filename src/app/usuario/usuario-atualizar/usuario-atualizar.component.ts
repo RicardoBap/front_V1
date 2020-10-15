@@ -66,12 +66,10 @@ export class UsuarioAtualizarComponent implements OnInit {
 
 
   carregarPermissoes() {
+    //console.log(this.permissoes)
     this.usuarioService.getPermissoes()
       .then(permissoes => {
         this.permissoes = permissoes
-        //.map(p => {
-          //return { descricao: p.descricao, codigo: p.codigo }
-        //})
       })
       .catch(erro => this.errorHandler.handle(erro))
   }

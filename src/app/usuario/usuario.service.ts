@@ -55,6 +55,7 @@ export class UsuarioService {
   } */
 
   public getPermissoes(): Promise<Array<Permissao>> {
+    //console.log(Permissao)
     return this.http.get<Permissao>(`${this.permissoesUrl}`)
       .toPromise()
       .then((resposta: any) => resposta )

@@ -17,6 +17,7 @@ import { Validacoes } from './../validacoes';
 export class UsuarioCadastroComponent implements OnInit {
 
   permissoes: Array<Permissao> = [
+    { codigo: 3, descricao: 'ROLE_PESQUISAR_CATEGORIA'},
     { codigo: 6, descricao: 'ROLE_PESQUISAR_PESSOA'},
     { codigo: 9, descricao: 'ROLE_PESQUISAR_LANCAMENTO'}
   ]; // Inicia com permissao para pesquisar pessoas e lancamentos

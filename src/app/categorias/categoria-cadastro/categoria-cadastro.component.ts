@@ -80,7 +80,7 @@ export class CategoriaCadastroComponent implements OnInit {
 
         this.messageService.add(
           {severity:'success', summary:'Service Message', detail:'Categoria atualizada com sucesso!'});
-          //this.atualizarTitulo() // <--------- TITULO ATUALIZA
+
           this.pesquisar()
       })
       .catch(erro => this.errorHandler.handle(erro))
@@ -99,7 +99,7 @@ export class CategoriaCadastroComponent implements OnInit {
     this.categoriaService.excluir(categoria.codigo)
       .then(() => {
        this.pesquisar()
-        //console.log('Excluído')
+
         this.messageService.add(
           {severity:'success', summary:'Service Message', detail:'Categoria excluído com sucesso!'})
       })

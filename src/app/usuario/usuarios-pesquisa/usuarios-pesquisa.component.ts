@@ -39,6 +39,7 @@ export class UsuariosPesquisaComponent implements OnInit {
       .then(resultado => {
         this.totalRegistros = resultado.total
         this.usuarios = resultado.usuarios
+        console.log(this.usuarios)
       })
       .catch(erro => this.errorHandler.handle(erro))
   }
