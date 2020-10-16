@@ -4,7 +4,8 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { MoneyHttp } from './../seguranca/money-http';
 import { Usuario, Permissao } from './../core/usuario.model';
 
-import { environment } from './../../environments/environment.prod';
+//import { environment } from './../../environments/environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 export class UsuarioFiltro {
   nome: string

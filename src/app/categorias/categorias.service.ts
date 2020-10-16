@@ -4,7 +4,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { MoneyHttp } from '../seguranca/money-http';
 import { Categoria } from '../core/model';
 
-import { environment } from './../../environments/environment.prod';
+//import { environment } from './../../environments/environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'

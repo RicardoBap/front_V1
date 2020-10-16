@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { MoneyHttp } from './money-http';
 import { AuthService } from './auth.service';
 
-import { environment } from './../../environments/environment.prod';
+//import { environment } from './../../environments/environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'

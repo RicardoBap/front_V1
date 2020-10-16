@@ -6,7 +6,8 @@ import { Lancamento } from './../core/model';
 import * as moment from 'moment'
 import { MoneyHttp } from '../seguranca/money-http';
 
-import { environment } from './../../environments/environment.prod';
+//import { environment } from './../../environments/environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 export class LancamentoFiltro {
   descricao: string

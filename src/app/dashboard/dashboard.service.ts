@@ -1,9 +1,11 @@
+import { environment } from 'src/environments/environment.prod';
 import { Injectable } from '@angular/core';
 
 import { MoneyHttp } from './../seguranca/money-http';
 
-import { environment } from './../../environments/environment.prod';
 import * as moment from 'moment';
+
+//import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
