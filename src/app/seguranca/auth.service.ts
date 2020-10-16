@@ -3,11 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-
 import { environment } from 'src/environments/environment.prod';
-
 //import { environment } from './../../environments/environment.prod';
-
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +12,7 @@ import { environment } from 'src/environments/environment.prod';
 export class AuthService {
 
   oauthTokenUrl: string;   /* 'http://localhost:8080/oauth/token' */
-  jwtPayLoad: any
+  jwtPayLoad: any;
 
   constructor(
     private http: HttpClient,
@@ -31,7 +28,6 @@ export class AuthService {
       .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
 
     const body = `username=${usuario}&password=${senha}&grant_type=password`
-
 
     return this.http.post<any>(this.oauthTokenUrl, body, { headers, withCredentials: true })
       .toPromise()
