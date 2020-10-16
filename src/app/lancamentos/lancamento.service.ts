@@ -30,7 +30,9 @@ export class LancamentoService {
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+      //.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
+      .append('Content-Type', 'application/x-www-form-urlencoded')
+      .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
 
       let params = new HttpParams({
         fromObject: {
