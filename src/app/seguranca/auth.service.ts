@@ -4,9 +4,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 
-//import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
-import { environment } from 'src/environments/environment';
 
 //import { environment } from './../../environments/environment.prod';
 
