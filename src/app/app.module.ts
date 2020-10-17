@@ -18,7 +18,7 @@ import { PerguntasModule } from './perguntas/perguntas.module';
     HttpClientModule,
     BrowserAnimationsModule,
 
-    CoreModule
+    CoreModule,
 
     AppRoutingModule,
     PerguntasModule
