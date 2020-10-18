@@ -4,14 +4,13 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { environment } from 'src/environments/environment.prod';
-//import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  oauthTokenUrl: string;   /* 'http://localhost:8080/oauth/token' */
+  oauthTokenUrl: string;
   jwtPayLoad: any;
 
   constructor(

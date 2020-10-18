@@ -5,7 +5,6 @@ import { MoneyHttp } from './../seguranca/money-http';
 import * as moment from 'moment';
 
 import { environment } from 'src/environments/environment.prod';
-//import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +21,6 @@ export class DashboardService {
   lancamentosPorCategoria(): Promise<Array<any>> {
     return this.http.get<Array<any>>(`${this.lancamentosUrl}/estatisticas/por-categoria`)
       .toPromise()
-      //.then(response => response)
   }
 
 
@@ -32,11 +30,9 @@ export class DashboardService {
       .then(response => {
         const dados = response
         this.converterStringsParaDatas(dados)
-
         return dados
       })
   }
-
 
   private converterStringsParaDatas(dados: Array<any>) {
     for(const dado of dados) {

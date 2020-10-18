@@ -4,7 +4,6 @@ import { HttpHeaders } from '@angular/common/http';
 import { MoneyHttp } from '../seguranca/money-http';
 import { Categoria } from '../core/model';
 
-//import { environment } from './../../environments/environment.prod';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -12,58 +11,39 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class CategoriaService {
 
-  categoriasUrl: string; /* 'http://localhost:8080/categorias' */
+  categoriasUrl: string;
 
   constructor(private http: MoneyHttp) {
     this.categoriasUrl = `${environment.apiUrl}/categorias`
    }
 
   listarTodas(): Promise<any> {
-    //const headers = new HttpHeaders()
-      //.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
-
-      return this.http.get<any>( `${this.categoriasUrl}` ) //  { headers }
-        .toPromise()
+    return this.http.get<any>( `${this.categoriasUrl}` )
+      .toPromise()
   }
 
   consultar(): Promise<any> {
-    //const headers = new HttpHeaders()
-      //.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
-
-    return this.http.get<any>( `${this.categoriasUrl}` )  // { headers }
+    return this.http.get<any>( `${this.categoriasUrl}` )
       .toPromise()
   }
 
   adicionar(categoria: Categoria): Promise<Categoria> {
-    //const headers = new HttpHeaders()
-      //.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
-      //.append('Content-Type', 'application/json')
-
-      //const body = JSON.stringify(Categoria)
-
-      return this.http.post<Categoria>(`${this.categoriasUrl}` ) // , categoria
-        .toPromise()
-        .then(response => response)
+    return this.http.post<Categoria>(`${this.categoriasUrl}` )
+      .toPromise()
+      .then(response => response)
   }
 
   excluir(codigo: number): Promise<Categoria> {
-    //const headers = new HttpHeaders()
-      //.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
-
-      return this.http.delete<Categoria>(`${this.categoriasUrl}/${codigo}` ) //  , { headers }
+      return this.http.delete<Categoria>(`${this.categoriasUrl}/${codigo}` )
         .toPromise()
         .then(() => null)
   }
 /************************************************************************* */
   buscarPeloCodigo(codigo: number): Promise<Categoria> {
-    //const headers = new HttpHeaders()
-      //.append('Authorization', 'Basic YWRtaW46YWRtaW4=')
-
-    return this.http.get<Categoria>(`${this.categoriasUrl}/${codigo}` )  // , { headers }
+    return this.http.get<Categoria>(`${this.categoriasUrl}/${codigo}` )
       .toPromise()
       .then( response => {
-        const categoria = response //as Categoria
-
+        const categoria = response
         return categoria
       })
   }

@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { HttpParams } from '@angular/common/http';
-
 import { MoneyHttp } from './../seguranca/money-http';
 import * as moment from 'moment';
 
-//import { environment } from './../../environments/environment.prod';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -29,7 +27,6 @@ export class RelatorioService {
 
     return this.http.get<any>(`${this.lancamentorUrl}/relatorios/tesouraria`, { params, responseType: 'blob' } )
       .toPromise()
-      .then(response => response)
 
   }
 
